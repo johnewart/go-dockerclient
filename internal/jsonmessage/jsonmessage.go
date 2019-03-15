@@ -13,8 +13,8 @@ import (
 	"time"
 
 	units "github.com/docker/go-units"
-	"github.com/fsouza/go-dockerclient/internal/term"
 	gotty "github.com/ijc/Gotty"
+	"github.com/johnewart/go-dockerclient/internal/term"
 )
 
 // RFC3339NanoFixed is time.RFC3339Nano with nanoseconds padded using zeros to
