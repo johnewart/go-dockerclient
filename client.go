@@ -33,7 +33,7 @@ import (
 
 	"github.com/docker/docker/pkg/homedir"
 	"github.com/docker/docker/pkg/stdcopy"
-	"github.com/fsouza/go-dockerclient/internal/jsonmessage"
+	"github.com/johnewart/go-dockerclient/internal/jsonmessage"
 )
 
 const (
@@ -218,7 +218,12 @@ func NewVersionedClient(endpoint string, apiVersionString string) (*Client, erro
 		requestedAPIVersion: requestedAPIVersion,
 	}
 	c.initializeNativeClient(defaultTransport)
+	c.checkAPIVersion()
 	return c, nil
+}
+
+func (c *Client) ServerAPIVersion() string {
+	return c.serverAPIVersion.String()
 }
 
 // WithTransport replaces underlying HTTP client of Docker Client by accepting
